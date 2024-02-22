@@ -1,0 +1,40 @@
+def calculatori():
+    while True:
+        try:
+            num1 = float(input("sheiyvanet pirveli ricxvi -  "))
+            operator = input("sheiyvanet operaciebi (+, -, *, /, %): ")
+            num2 = float(input("sheiyvanet meore ricxivi -  "))
+            
+            if operator == '+':
+                result = num1 + num2
+            elif operator == '-':
+                result = num1 - num2
+            elif operator == '*':
+                result = num1 * num2
+            elif operator == "%":
+                result = num1 * num2 / 100
+            elif operator == '/':
+                if num2 != 0:
+                    result = num1 / num2
+                else:
+                    print("Error: Division by zero!")
+                    continue
+            else:
+                print("Error: Invalid operator!")
+                continue
+            
+            
+            print("pasuxia:", result)
+            
+            if input("gindat operaciebis gagrdzeleba? (ki/ara): ").lower() != 'yes':
+                print("darsulda!")
+                break
+                
+        except Exception as e:
+            print("Error:", e)
+
+calculatori()
+           
+      
+   
+
