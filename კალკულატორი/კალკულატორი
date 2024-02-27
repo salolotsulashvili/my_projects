@@ -1,9 +1,9 @@
 def calculatori():
     while True:
         try:
-            num1 = float(input("sheiyvanet pirveli ricxvi -  "))
-            operator = input("sheiyvanet operaciebi (+, -, *, /, %): ")
-            num2 = float(input("sheiyvanet meore ricxivi -  "))
+            num1 = float(input("Enter the first number: "))
+            operator = input("Enter the operator (+, -, *, /, %): ")
+            num2 = float(input("Enter the second number: "))
             
             if operator == '+':
                 result = num1 + num2
@@ -23,18 +23,17 @@ def calculatori():
                 print("Error: Invalid operator!")
                 continue
             
+            print("Result:", result)
             
-            print("pasuxia:", result)
-            
-            if input("gindat operaciebis gagrdzeleba? (ki/ara): ").lower() != 'yes':
-                print("darsulda!")
+            if input("Do you want to perform another calculation? (yes/no): ").lower() != 'yes':
+                print("Exiting calculator...")
                 break
                 
         except Exception as e:
             print("Error:", e)
 
 calculatori()
-           
+
       
    
 
