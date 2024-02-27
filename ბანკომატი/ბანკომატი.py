@@ -1,3 +1,9 @@
+import os
+fileadress = 'file.txt'
+if os.path.isfile(fileadress) == False:
+    file = open(fileadress, "w")
+    file.close()
+
 print()
 print("     bankomati  ")
 print("dziritadi operaciebi : ")
@@ -46,11 +52,8 @@ while True:
             print(f"BALANSI GANAXLDA. axali balansi = {user_account.deposit(amount)} lari.")
         break
     elif choice == 3:
-        amount = float(input("Dasrulebuli tanxa - "))
-        print(f"BALANSI GANAXLDA. axali balansi = {user_account.withdraw(amount)} lari.") 
+        print(f"balansi = {user_account.balance} lari.") 
         break  
 
 
-    with open('bankomati.txt', 'r+') as file:
-        a = file.read()     
-        print(a)  
+
