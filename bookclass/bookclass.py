@@ -1,8 +1,20 @@
+import datetime
+
 class Book:
     def __init__(self, title, author, publication_year):
         self.title = title
-        self.author = author
-        self.publication_year = publication_year
+        try:
+            int(author)  
+            raise ValueError("Author must be a string.")
+        except ValueError:
+            self.author = author
+        try:
+            self.publication_year = int(publication_year)
+            current_year = datetime.datetime.now().year
+            if self.publication_year > current_year:
+                raise ValueError("Publication year cannot be in the future.")
+        except ValueError as e:
+            raise e
 
 class Library:
     def __init__(self):
@@ -31,7 +43,7 @@ def main():
     while True:
         print("\nLibrary Menu:")
         print("1. Add a book")
-        print("2. show all books")
+        print("2. Show all books")
         print("3. Search for a book")
         print("4. Quit")
 
@@ -41,9 +53,12 @@ def main():
             title = input("Enter the title of the book: ")
             author = input("Enter the author of the book: ")
             publication_year = input("Enter the publication year of the book: ")
-            book = Book(title, author, publication_year)
-            library.add_book(book)
-            print("Book added successfully!")
+            try:
+                book = Book(title, author, publication_year)
+                library.add_book(book)
+                print("Book added successfully!")
+            except ValueError as e:
+                print(f"Error: {e}")
 
         elif choice == '2':
             library.display_books()
